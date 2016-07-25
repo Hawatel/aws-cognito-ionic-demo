@@ -11,6 +11,17 @@ $ sudo npm install -g ionic
 $ ionic state restore
 ```
 
+## Configuration
+Add userPoolId, clientId, and identityId to the file: www/js/factories/awsCognitoIdentity.factory.js
+```javascript
+// how to get userPoolId, go to AWS Console -> Cognito -> User pools -> <select_user_pool> -> Pool details -> Pool Id
+var userPoolId = '';
+// how to get clientId, go to AWS Console -> Cognito -> User pools -> <select_user_pool> -> Apps -> App client id
+var clientId = '';
+// how to get identityPoolId, go to AWS Console -> Cognito -> Federate Identities > <select_federate_identity> -> Edit -> Identity pool ID
+var identityPoolId = '';
+```
+
 ## Build mobile package file
 ```
 $ ionic build android
