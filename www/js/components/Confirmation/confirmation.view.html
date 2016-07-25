@@ -1,0 +1,45 @@
+<ion-view view-title="Confirmation" name="login-view" ng-init="setUserNameIfExists()">
+  <ion-content class="padding">
+    <p>Insert a verification code or resend code again.</p>
+    <form name="verif" ng-submit="verifyCode()">
+      <div class="list list-inset">
+        <label class="item item-input" ng-hide="user.exists">
+          <input type="text" name="username" ng-model="user.name"
+            placeholder="Username"
+            required>
+        </label>
+        <label class="item item-input">
+          <input type="text" name="code" ng-model="user.code"
+            placeholder="Code">
+        </label>
+
+        <div ng-messages="verif.username.$error" ng-if="verif.username.$touched">
+          <p ng-message="required">* Username is required</p>
+        </div>
+
+        <div ng-messages="verif.code.$error" ng-if="verif.code.$touched">
+          <p ng-message="required">* Code is required</p>
+        </div>
+
+        <div class="error" ng-show="error.message">
+          {{ error.message }}
+        </div>
+
+        <div class="button-bar">
+          <button class="button button-block button-positive"
+            type="button"
+            ng-click="verifyCode()"
+            ng-disabled="verif.$invalid || !verif.code.$modelValue">
+            <span>Verify code</span>
+          </button>
+          <button class="button button-block button-dark"
+            type="button"
+            ng-click="resendCode()"
+            ng-disabled="verif.$invalid">
+            <span>Resend code</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

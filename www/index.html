@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- AWS SDK and dependencies -->
+    <script src="lib/aws/aws-sdk-2.4.9.min.js"></script>
+    <script src="lib/aws/aws-cognito-sdk.min.js "></script>
+    <script src="lib/aws/amazon-cognito.min.js"></script>
+    <script src="lib/aws/amazon-cognito-identity.min.js"></script>
+    <script src="lib/aws/dependencies/sjcl.js"></script>
+    <script src="lib/aws/dependencies/moment.min.js"></script>
+    <script src="lib/aws/dependencies/jsbn.js"></script>
+    <script src="lib/aws/dependencies/jsbn2.js"></script>
+
+    <script src="lib/angular/angular-messages.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/factories/awsCognitoIdentity.factory.js"></script>
+    <script src="js/factories/awsCognitoSync.factory.js"></script>
+    <script src="js/components/Todo/todo.controller.js"></script>
+    <script src="js/components/Login/login.controller.js"></script>
+    <script src="js/components/Register/register.controller.js"></script>
+    <script src="js/components/Confirmation/confirmation.controller.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="main"></ion-nav-view>
+  </body>
+</html>

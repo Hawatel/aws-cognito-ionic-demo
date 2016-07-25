@@ -1,0 +1,44 @@
+<ion-view view-title="Login" name="login-view" hide-back-button="true" ng-init="getUserFromLocalStorage()">
+  <ion-content class="padding">
+    <form name="login" novalidate ng-submit="signIn(login)">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" name="email" ng-model="user.email"
+            placeholder="Email"
+            required>
+        </label>
+        <label class="item item-input">
+          <input type="password" name="password" ng-model="user.password"
+            placeholder="Password"
+            required>
+        </label>
+      </div>
+
+      <div ng-messages="login.email.$error" ng-if="login.email.$touched">
+        <p ng-message="required">* Email is required</p>
+        <p ng-message="minlength">* Email must be longer than 5 characters</p>
+      </div>
+
+      <div ng-messages="login.password.$error" ng-if="login.password.$touched">
+        <p ng-message="required">* Password is required</p>
+        <p ng-message="minlength">* Password must be longer than 6 characters</p>
+      </div>
+
+      <div class="padding">
+        <div class="error" ng-show="error.message">
+          {{ error.message }}
+        </div>
+
+        <button type="submit" class="button button-block button-positive"
+          ng-disabled="login.$invalid">
+          <span ng-show="!loading">Log In</span>
+          <i ng-show="loading" class="ion-loading-b"></i>
+        </button>
+        <p class="text-center">
+          <a class="button button-small button-balanced icon-right ion-compose" href="#/register">Register</a>
+          <a class="button button-small button-dark icon-right ion-android-checkmark-circle" href="#/confirm">Code verification</a>
+        </p>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

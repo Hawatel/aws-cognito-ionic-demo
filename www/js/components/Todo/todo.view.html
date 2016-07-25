@@ -1,0 +1,61 @@
+<ion-view view-title="Todo" name="login-view" hide-back-button="true" ng-init="connect('TodoTasks')">
+  <ion-nav-buttons side="right">
+    <button class="button button-light" ng-click="logOut()">
+      Log out
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <form name="newtask" novalidate>
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" name="title" placeholder="Title"
+          ng-model="task.title"
+          required>
+        </label>
+        <label class="item item-input">
+          <textarea name="desc" placeholder="Description"
+          ng-model="task.desc"
+          required></textarea>
+        </label>
+      </div>
+
+      <button type="button" class="button button-block button-positive"
+        ng-disabled="newtask.$invalid"
+        ng-click="put()">
+        <span>Add task</span>
+      </button>
+    </form>
+
+    <div class="error" ng-show="error.message">
+      {{ error.message }}
+    </div>
+
+    <!-- List of tasks -->
+    <div class="list card">
+      <div class="task" ng-repeat="(key, item) in tasks track by key"
+        ng-model="description"
+        ng-init="description = false"
+        ng-click="description = !description">
+        <div class="row">
+          <div class="col">
+            <div class="item item-icon-left">
+              <i class="icon ion-ios-paper-outline"></i>
+              <h2>{{ item.title }}</h2>
+              <p>{{ (key | taskTimestamp | date:'yyyy-MM-dd HH:mm') }}</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="item text-right">
+              <a class="button button-icon icon ion-ios-trash-outline" ng-click="delete(key)"></a>
+            </div>
+          </div>
+        </div>
+        <div class="row" ng-show="description">
+          <div class="item item-body">
+            {{ item.desc }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
