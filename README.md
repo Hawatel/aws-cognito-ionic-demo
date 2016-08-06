@@ -2,6 +2,10 @@
 
 Demo application stores a list of tasks to do in AWS Cognito. Demo application was made by following technology stack: Ionic Framework 1, Angular 1, AWS SDK for JavaScript, HTML, CSS.
 
+<p align="center">
+<img src="https://s3-eu-west-1.amazonaws.com/hawatel-github/aws-cognito-ionic-demo/aws-cognito-ionic-banner.png">
+</p>
+
 ## Installation
 ```
 $ git clone https://github.com/Hawatel/aws-cognito-ionic-demo.git
